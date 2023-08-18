@@ -1,0 +1,56 @@
+#root {
+  max-width: 1280px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.output div {
+  text-align: left;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.input input {
+  border: 0;
+  background: transparent;
+  flex: 1;
+}
+
+.input input:focus {
+  outline: none;
+}
+
+.prompt {
+  margin-right: 6px;
+}
+
+.system-output-error {
+  color: #ff0044;
+}
+
+.system-output {
+  color: #0098dc;
+}
