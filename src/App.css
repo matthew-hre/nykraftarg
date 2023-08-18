@@ -37,6 +37,7 @@
   border: 0;
   background: transparent;
   flex: 1;
+  color: #fff;
 }
 
 .input input:focus {
