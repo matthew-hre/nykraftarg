@@ -111,7 +111,7 @@ function App() {
             style: "system-output-error",
           };
         }
-        if (args[2] !== "tana") {
+        if (args[1] !== "tana") {
           return {
             output: "2fa is incorrect",
             style: "system-output-error",
