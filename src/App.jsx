@@ -79,14 +79,67 @@ function App() {
         return {
           output: [
             "ls - list files",
-            "echo - print text",
+            "echo [input] - print text",
             "whoami - print user",
             "help - print help",
-            "cat - print file",
-            "cd - change directory",
+            "cat [file_name] - print file",
+            "cd [directory] - change directory",
+            "whitelist [add/remove] [player] [2fa] - ",
           ],
           style: "system-output",
         };
+
+      case "whitelist":
+        if (args.length === 0) {
+          return {
+            output:
+              "Mode not specified. Usage: whitelist [add/remove] [player] [2fa]",
+            style: "system-output-error",
+          };
+        }
+        if (args.length === 1) {
+          return {
+            output:
+              "Player not specified. Usage: whitelist [add/remove] [player] [2fa]",
+            style: "system-output-error",
+          };
+        }
+        if (args.length === 2) {
+          return {
+            output:
+              "2fa not provided. Usage: whitelist [add/remove] [player] [2fa]",
+            style: "system-output-error",
+          };
+        }
+        if (args[2] !== "tana") {
+          return {
+            output: "2fa is incorrect",
+            style: "system-output-error",
+          };
+        }
+        if (args[0] === "remove") {
+          return {
+            output: `No permission.`,
+            style: "system-output-error",
+          };
+        }
+        if (args[0] === "add" && args[1] === "tana" && args[2] === "1313") {
+          return {
+            output: `Added ${args[1]} to the whitelist. Please contact an admin for the changes to take effect.`,
+            style: "system-output",
+          };
+        }
+        if (args[0] === "add" && args[1] === "tana" && args[2] !== "1313") {
+          return {
+            output: `2fa is incorrect`,
+            style: "system-output-error",
+          };
+        }
+        return {
+          output: `No permission.`,
+          style: "system-output-error",
+        };
+        break;
 
       case "cd":
         if (args[0] === "..") {
